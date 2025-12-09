@@ -1,0 +1,12 @@
+# Ignore old Boston Airbnb project folder and large dataset
+_Final Project - Boston Airbnb/
+
+# Ignore it too
+LA_Airbnb_ALL.csv
+Data/LA_Airbnb_ALL.csv
+
+# Optional
+*.csv
+.ipynb_checkpoints/
+__pycache__/
+
