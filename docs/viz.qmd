@@ -4,12 +4,15 @@ format: html
 jupyter: python3
 ---
 
-
+```{python}
 import pandas as pd
 import plotly.express as px
 
 # data inserted
 df = pd.read_csv("C:/Users/adans/OneDrive/Documents/Data Science/Project25/_Final Project - Boston Airbnb/~Final Project - Boston Airbnb/Data/LA_Airbnb_ALL.csv")
+
+
+
 
 # Price numeric
 df['price_num'] = pd.to_numeric(
@@ -18,29 +21,69 @@ df['price_num'] = pd.to_numeric(
 )
 df = df[df['price_num'].notna() & (df['accommodates'] > 0)]
 df['price_per_person'] = df['price_num'] / df['accommodates']
+```
 
-
+```{python}
 ### Price Distribution
+# Filter price range for visualization
 price_cap = 500
 df_price_plot = df[df['price_num'].between(0, price_cap)]
 
 fig_price_dist = px.histogram(
-df_price_plot,
-x='price_num',
-nbins=50,
-title='Distribution of Nightly Price (0–$500)',
-labels={'price_num': 'Nightly price (USD)'}
+    df_price_plot,
+    x='price_num',
+    nbins=50,
+    title='Distribution of Nightly Price (0–$500)',
+    labels={'price_num': 'Nightly price (USD)'}
 )
-fig_price_dist
+fig_price_dist.show()
+```
+# if we want to show price per person 
+```{python}
+price_pp_cap = 250
+df_pp_plot = df[df['price_per_person'].between(0, price_pp_cap)]
+
+fig_price_pp = px.histogram(
+    df_pp_plot,
+    x='price_per_person',
+    nbins=50,
+    title='Distribution of Nightly Price per Person',
+    labels={'price_per_person': 'Price per person (USD)'}
+)
+fig_price_pp.show()
+
+```
 
 ## Room Type vs Price
+```{python}
 df_room_plot = df[df['price_num'].between(0, price_cap)]
 
 fig_room_price = px.box(
-df_room_plot,
-x='room_type',
-y='price_num',
-title='Price by Room Type (0–$500)',
-labels={'room_type': 'Room type', 'price_num': 'Nightly price (USD)'}
+    df_room_plot,
+    x='room_type',
+    y='price_num',
+    title='Price by Room Type (0–$500)',
+    labels={'room_type': 'Room type', 'price_num': 'Nightly price (USD)'}
 )
-fig_room_price
+fig_room_price.show()
+```
+## 3. Price per Person by Stay Type
+
+```{python}
+pp_cap = 250
+df_pp = df[df["price_per_person"].between(0, pp_cap) & df["stay_type"].notna()]
+
+fig_pp_stay = px.box(
+    df_pp,
+    x="stay_type",
+    y="price_per_person",
+    title="Price per Person by Stay Type (0–$250)",
+    labels={"stay_type": "Stay type", "price_per_person": "Price per person (USD)"}
+)
+fig_pp_stay.update_layout(xaxis={"categoryorder": "array",
+"categoryarray": ["short stay (1–3 nights)",
+"medium stay (4–14 nights)",
+"long stay (15+ nights)"]})
+fig_pp_stay
+```
+

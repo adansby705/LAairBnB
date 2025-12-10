@@ -3,7 +3,7 @@ title: "Interactive Explorer"
 format: html
 jupyter: python3
 ---
-
+```{python}
 import pandas as pd
 import plotly.express as px
 import ipywidgets as widgets
@@ -20,8 +20,8 @@ df['price_per_person'] = df['price_num'] / df['accommodates']
 
 # Cleaning for review scores
 df_reviews = df[df['review_scores_rating'].notna()].copy()
-
-
+```
+```{python}
 ### Widget 1
 # Neighborhood Price Distiction 
 neigh_options = ['All'] + sorted(df['neighbourhood_cleansed'].dropna().unique().tolist())
@@ -44,7 +44,7 @@ style={'description_width': 'initial'}
 def neighborhood_price_widget(neighbourhood, max_price):
 data = df[df['price_num'] <= max_price]
 
-```
+
 if neighbourhood != 'All':
     data = data[data['neighbourhood_cleansed'] == neighbourhood]
 
@@ -61,7 +61,7 @@ fig.update_layout(height=500)
 fig.show()
 ```
 
-
+```{python}
 ### Widget 2
 # Review Score vs Price 
 @interact(
