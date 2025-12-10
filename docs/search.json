@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "viz.html",
-    "href": "viz.html",
-    "title": "Visualizations",
-    "section": "",
-    "text": "import pandas as pd import plotly.express as px"
-  },
-  {
-    "objectID": "viz.html#room-type-vs-price",
-    "href": "viz.html#room-type-vs-price",
-    "title": "Visualizations",
-    "section": "Room Type vs Price",
-    "text": "Room Type vs Price\ndf_room_plot = df[df[‘price_num’].between(0, price_cap)]\nfig_room_price = px.box( df_room_plot, x=‘room_type’, y=‘price_num’, title=‘Price by Room Type (0–$500)’, labels={‘room_type’: ‘Room type’, ‘price_num’: ‘Nightly price (USD)’} ) fig_room_price"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Project25",
@@ -42,24 +21,10 @@
     "text": "Data and Methods\n\nData source: LA Airbnb listings scraped from Airbnb dtaset (LA_Airbnb_ALL.csv)\nRaw format: CSV file with one row per listing and columns for price, location, reviews, etc.\nCleaning & enrichment:\n\nConverted nightly price from strings to numeric.\nCreated price per person = price / accommodates.\nParsed amenities into a list, then flagged WiFi, kitchen, free parking, pool, air conditioning.\nUsed estimated occupancy to compute annual revenue.\nCategorized listings by stay type (short / medium / long) using minimum nights.\n\nTools: Python, pandas, plotly, ipywidgets, Quarto.\n\nFor full details see the visualizations and interactive pages.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "docs/viz.html",
-    "href": "docs/viz.html",
-    "title": "Visualizations",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "import pandas as pd import plotly.express as px"
-  },
-  {
-    "objectID": "docs/viz.html#room-type-vs-price",
-    "href": "docs/viz.html#room-type-vs-price",
-    "title": "Visualizations",
-    "section": "Room Type vs Price",
-    "text": "Room Type vs Price\ndf_room_plot = df[df[‘price_num’].between(0, price_cap)]\nfig_room_price = px.box( df_room_plot, x=‘room_type’, y=‘price_num’, title=‘Price by Room Type (0–$500)’, labels={‘room_type’: ‘Room type’, ‘price_num’: ‘Nightly price (USD)’} ) fig_room_price"
-  },
-  {
-    "objectID": "docs/interactive.html",
-    "href": "docs/interactive.html",
-    "title": "Interactive Explorer",
-    "section": "",
-    "text": "import pandas as pd import plotly.express as px import ipywidgets as widgets from ipywidgets import interact\ndf = pd.read_csv(“C:/Users/adans/OneDrive/Documents/Data Science/Project25/_Final Project - Boston Airbnb/~Final Project - Boston Airbnb/Data/LA_Airbnb_ALL.csv”)\ndf[‘price_num’] = pd.to_numeric( df[‘price’].replace(‘[$,]’, ’‘, regex=True), errors=’coerce’ ) df = df[df[‘price_num’].notna() & (df[‘accommodates’] &gt; 0)] df[‘price_per_person’] = df[‘price_num’] / df[‘accommodates’]\n\nCleaning for review scores\ndf_reviews = df[df[‘review_scores_rating’].notna()].copy()\n\nWidget 1\n\n\n\nNeighborhood Price Distiction\nneigh_options = [‘All’] + sorted(df[‘neighbourhood_cleansed’].dropna().unique().tolist())\n@interact( neighbourhood=widgets.Dropdown( options=neigh_options, description=‘Neighborhood:’, style={‘description_width’: ‘initial’} ), max_price=widgets.IntSlider( value=300, min=50, max=1000, step=50, description=‘Max Price ($):’, style={‘description_width’: ‘initial’} ) ) def neighborhood_price_widget(neighbourhood, max_price): data = df[df[‘price_num’] &lt;= max_price]\nif neighbourhood != 'All':\n    data = data[data['neighbourhood_cleansed'] == neighbourhood]\n\ntitle = f\"Price Distribution — {neighbourhood if neighbourhood != 'All' else 'All Neighborhoods'} (≤ ${max_price})\"\n\nfig = px.histogram(\n    data,\n    x='price_num',\n    nbins=40,\n    title=title,\n    labels={'price_num': 'Nightly Price (USD)'}\n)\nfig.update_layout(height=500)\nfig.show()\n\nWidget 2\n\n\n\nReview Score vs Price\n@interact( min_rating=widgets.IntSlider( value=80, min=0, max=100, step=5, description=‘Minimum Rating:’, style={‘description_width’: ‘initial’} ), max_price=widgets.IntSlider( value=400, min=50, max=1000, step=50, description=‘Max Price ($):’, style={‘description_width’: ‘initial’} ) ) def review_score_widget(min_rating, max_price): data = df_reviews[ (df_reviews[‘review_scores_rating’] &gt;= min_rating) & (df_reviews[‘price_num’] &lt;= max_price)]\ntitle = f\"Price vs Review Score (Rating ≥ {min_rating}, Price ≤ ${max_price})\"\n\nfig = px.scatter(\n    data,\n    x='review_scores_rating',\n    y='price_num',\n    color='room_type',\n    opacity=0.6,\n    title=title,\n    labels={\n        'review_scores_rating': 'Review Score',\n        'price_num': 'Nightly Price (USD)',\n        'room_type': 'Room Type'\n    }\n)\nfig.update_layout(height=500)\nfig.show()"
+    "text": "About this site"
   }
 ]
