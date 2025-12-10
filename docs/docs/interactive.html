@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Visualizations – LA Airbnb Analysis</title>
+<title>Interactive Explorer – LA Airbnb Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fe81d0376b2c50856e68e651e390326.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">LA Airbnb Analysis</span>
     </a>
   </div>
@@ -93,11 +93,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -116,12 +116,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-inserted" id="toc-data-inserted" class="nav-link active" data-scroll-target="#data-inserted">data inserted</a></li>
-  <li><a href="#price-numeric" id="toc-price-numeric" class="nav-link" data-scroll-target="#price-numeric">Price numeric</a>
+  <li><a href="#cleaning-for-review-scores" id="toc-cleaning-for-review-scores" class="nav-link active" data-scroll-target="#cleaning-for-review-scores">Cleaning for review scores</a>
   <ul class="collapse">
-  <li><a href="#price-distribution" id="toc-price-distribution" class="nav-link" data-scroll-target="#price-distribution">Price Distribution</a></li>
-  <li><a href="#room-type-vs-price" id="toc-room-type-vs-price" class="nav-link" data-scroll-target="#room-type-vs-price">Room Type vs Price</a></li>
+  <li><a href="#widget-1" id="toc-widget-1" class="nav-link" data-scroll-target="#widget-1">Widget 1</a></li>
   </ul></li>
+  <li><a href="#neighborhood-price-distiction" id="toc-neighborhood-price-distiction" class="nav-link" data-scroll-target="#neighborhood-price-distiction">Neighborhood Price Distiction</a>
+  <ul class="collapse">
+  <li><a href="#widget-2" id="toc-widget-2" class="nav-link" data-scroll-target="#widget-2">Widget 2</a></li>
+  </ul></li>
+  <li><a href="#review-score-vs-price" id="toc-review-score-vs-price" class="nav-link" data-scroll-target="#review-score-vs-price">Review Score vs Price</a></li>
   </ul>
 </nav>
     </div>
@@ -130,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Visualizations</h1>
+<h1 class="title">Interactive Explorer</h1>
 </div>
 
 
@@ -147,26 +150,60 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>import pandas as pd import plotly.express as px</p>
-<section id="data-inserted" class="level1">
-<h1>data inserted</h1>
+<p>import pandas as pd import plotly.express as px import ipywidgets as widgets from ipywidgets import interact</p>
 <p>df = pd.read_csv(“C:/Users/adans/OneDrive/Documents/Data Science/Project25/_Final Project - Boston Airbnb/~Final Project - Boston Airbnb/Data/LA_Airbnb_ALL.csv”)</p>
-</section>
-<section id="price-numeric" class="level1">
-<h1>Price numeric</h1>
 <p>df[‘price_num’] = pd.to_numeric( df[‘price’].replace(‘[$,]’, ’‘, regex=True), errors=’coerce’ ) df = df[df[‘price_num’].notna() &amp; (df[‘accommodates’] &gt; 0)] df[‘price_per_person’] = df[‘price_num’] / df[‘accommodates’]</p>
-<section id="price-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="price-distribution">Price Distribution</h3>
-<p>price_cap = 500 df_price_plot = df[df[‘price_num’].between(0, price_cap)]</p>
-<p>fig_price_dist = px.histogram( df_price_plot, x=‘price_num’, nbins=50, title=‘Distribution of Nightly Price (0–$500)’, labels={‘price_num’: ‘Nightly price (USD)’} ) fig_price_dist</p>
+<section id="cleaning-for-review-scores" class="level1">
+<h1>Cleaning for review scores</h1>
+<p>df_reviews = df[df[‘review_scores_rating’].notna()].copy()</p>
+<section id="widget-1" class="level3">
+<h3 class="anchored" data-anchor-id="widget-1">Widget 1</h3>
 </section>
-<section id="room-type-vs-price" class="level2">
-<h2 class="anchored" data-anchor-id="room-type-vs-price">Room Type vs Price</h2>
-<p>df_room_plot = df[df[‘price_num’].between(0, price_cap)]</p>
-<p>fig_room_price = px.box( df_room_plot, x=‘room_type’, y=‘price_num’, title=‘Price by Room Type (0–$500)’, labels={‘room_type’: ‘Room type’, ‘price_num’: ‘Nightly price (USD)’} ) fig_room_price</p>
+</section>
+<section id="neighborhood-price-distiction" class="level1">
+<h1>Neighborhood Price Distiction</h1>
+<p>neigh_options = [‘All’] + sorted(df[‘neighbourhood_cleansed’].dropna().unique().tolist())</p>
+<p><span class="citation" data-cites="interact">@interact</span>( neighbourhood=widgets.Dropdown( options=neigh_options, description=‘Neighborhood:’, style={‘description_width’: ‘initial’} ), max_price=widgets.IntSlider( value=300, min=50, max=1000, step=50, description=‘Max Price ($):’, style={‘description_width’: ‘initial’} ) ) def neighborhood_price_widget(neighbourhood, max_price): data = df[df[‘price_num’] &lt;= max_price]</p>
+<pre><code>if neighbourhood != 'All':
+    data = data[data['neighbourhood_cleansed'] == neighbourhood]
+
+title = f"Price Distribution — {neighbourhood if neighbourhood != 'All' else 'All Neighborhoods'} (≤ ${max_price})"
+
+fig = px.histogram(
+    data,
+    x='price_num',
+    nbins=40,
+    title=title,
+    labels={'price_num': 'Nightly Price (USD)'}
+)
+fig.update_layout(height=500)
+fig.show()</code></pre>
+<section id="widget-2" class="level3">
+<h3 class="anchored" data-anchor-id="widget-2">Widget 2</h3>
+</section>
+</section>
+<section id="review-score-vs-price" class="level1">
+<h1>Review Score vs Price</h1>
+<p><span class="citation" data-cites="interact">@interact</span>( min_rating=widgets.IntSlider( value=80, min=0, max=100, step=5, description=‘Minimum Rating:’, style={‘description_width’: ‘initial’} ), max_price=widgets.IntSlider( value=400, min=50, max=1000, step=50, description=‘Max Price ($):’, style={‘description_width’: ‘initial’} ) ) def review_score_widget(min_rating, max_price): data = df_reviews[ (df_reviews[‘review_scores_rating’] &gt;= min_rating) &amp; (df_reviews[‘price_num’] &lt;= max_price)]</p>
+<pre><code>title = f"Price vs Review Score (Rating ≥ {min_rating}, Price ≤ ${max_price})"
+
+fig = px.scatter(
+    data,
+    x='review_scores_rating',
+    y='price_num',
+    color='room_type',
+    opacity=0.6,
+    title=title,
+    labels={
+        'review_scores_rating': 'Review Score',
+        'price_num': 'Nightly Price (USD)',
+        'room_type': 'Room Type'
+    }
+)
+fig.update_layout(height=500)
+fig.show()</code></pre>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
