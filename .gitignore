@@ -10,3 +10,6 @@ Data/LA_Airbnb_ALL.csv
 .ipynb_checkpoints/
 __pycache__/
 
+
+/.quarto/
+**/*.quarto_ipynb

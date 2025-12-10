@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "viz.html",
+    "href": "viz.html",
+    "title": "Visualizations",
+    "section": "",
+    "text": "import pandas as pd import plotly.express as px"
+  },
+  {
+    "objectID": "viz.html#room-type-vs-price",
+    "href": "viz.html#room-type-vs-price",
+    "title": "Visualizations",
+    "section": "Room Type vs Price",
+    "text": "Room Type vs Price\ndf_room_plot = df[df[‘price_num’].between(0, price_cap)]\nfig_room_price = px.box( df_room_plot, x=‘room_type’, y=‘price_num’, title=‘Price by Room Type (0–$500)’, labels={‘room_type’: ‘Room type’, ‘price_num’: ‘Nightly price (USD)’} ) fig_room_price"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project25",
+    "section": "",
+    "text": "This is a Quarto website."
+  },
+  {
+    "objectID": "index.html#project-overview",
+    "href": "index.html#project-overview",
+    "title": "Project25",
+    "section": "Project Overview",
+    "text": "Project Overview\nThis site summarizes our analysis of Airbnb listings in Los Angeles.\nWe document our data sources, cleaning, enrichment (price per person, amenities, annual revenue, stay type), and key results."
+  },
+  {
+    "objectID": "index.html#data-and-methods",
+    "href": "index.html#data-and-methods",
+    "title": "Project25",
+    "section": "Data and Methods",
+    "text": "Data and Methods\n\nData source: LA Airbnb listings scraped from Airbnb dtaset (LA_Airbnb_ALL.csv)\nRaw format: CSV file with one row per listing and columns for price, location, reviews, etc.\nCleaning & enrichment:\n\nConverted nightly price from strings to numeric.\nCreated price per person = price / accommodates.\nParsed amenities into a list, then flagged WiFi, kitchen, free parking, pool, air conditioning.\nUsed estimated occupancy to compute annual revenue.\nCategorized listings by stay type (short / medium / long) using minimum nights.\n\nTools: Python, pandas, plotly, ipywidgets, Quarto.\n\nFor full details see the visualizations and interactive pages.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  }
+]

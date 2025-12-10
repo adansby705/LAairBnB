@@ -1,0 +1,46 @@
+---
+title: "Visualizations"
+format: html
+jupyter: python3
+---
+
+
+import pandas as pd
+import plotly.express as px
+
+# data inserted
+df = pd.read_csv("C:/Users/adans/OneDrive/Documents/Data Science/Project25/_Final Project - Boston Airbnb/~Final Project - Boston Airbnb/Data/LA_Airbnb_ALL.csv")
+
+# Price numeric
+df['price_num'] = pd.to_numeric(
+    df['price'].replace('[\$,]', '', regex=True),
+    errors='coerce'
+)
+df = df[df['price_num'].notna() & (df['accommodates'] > 0)]
+df['price_per_person'] = df['price_num'] / df['accommodates']
+
+
+### Price Distribution
+price_cap = 500
+df_price_plot = df[df['price_num'].between(0, price_cap)]
+
+fig_price_dist = px.histogram(
+df_price_plot,
+x='price_num',
+nbins=50,
+title='Distribution of Nightly Price (0–$500)',
+labels={'price_num': 'Nightly price (USD)'}
+)
+fig_price_dist
+
+## Room Type vs Price
+df_room_plot = df[df['price_num'].between(0, price_cap)]
+
+fig_room_price = px.box(
+df_room_plot,
+x='room_type',
+y='price_num',
+title='Price by Room Type (0–$500)',
+labels={'room_type': 'Room type', 'price_num': 'Nightly price (USD)'}
+)
+fig_room_price

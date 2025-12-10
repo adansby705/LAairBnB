@@ -1,0 +1,27 @@
+---
+title: "Project25"
+format: html
+---
+
+This is a Quarto website.
+
+## Project Overview
+
+This site summarizes our analysis of Airbnb listings in Los Angeles.  
+We document our data sources, cleaning, enrichment (price per person, amenities, annual revenue, stay type), and key results.
+
+## Data and Methods
+
+- **Data source:** LA Airbnb listings scraped from Airbnb dtaset (LA_Airbnb_ALL.csv)
+- **Raw format:** CSV file with one row per listing and columns for price, location, reviews, etc.
+- **Cleaning & enrichment:**
+  - Converted nightly price from strings to numeric.
+  - Created price per person = price / accommodates.
+  - Parsed amenities into a list, then flagged WiFi, kitchen, free parking, pool, air conditioning.
+  - Used estimated occupancy to compute annual revenue.
+  - Categorized listings by stay type (short / medium / long) using minimum nights.
+- **Tools:** Python, pandas, plotly, ipywidgets, Quarto.
+
+For full details see the visualizations and interactive pages.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
